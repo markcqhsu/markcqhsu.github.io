@@ -122,13 +122,14 @@
       width: 64px;
       height: 64px;
       border-radius: 16px;
-      font-size: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      overflow: hidden;
       flex-shrink: 0;
     }
-    .app-icon.sepia { background: #f4ecd8; }
+    .app-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
     .app-meta h2 {
       font-size: 1.05rem;
@@ -289,7 +290,7 @@
     <!-- 老花救星 Big Word -->
     <div class="app-card">
       <div class="app-card-top">
-        <div class="app-icon sepia">👁️</div>
+        <div class="app-icon"><img src="logo.png" alt="老花救星 logo" /></div>
         <div class="app-meta">
           <h2>老花救星 Big Word</h2>
           <span class="tag">iOS</span>
