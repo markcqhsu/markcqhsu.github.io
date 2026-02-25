@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>markcqhsu — 實用工具 App 集</title>
-  <meta name="description" content="markcqhsu 開發的實用工具 App，包含老花救星 Big Word 等應用程式。" />
+  <title>Mark Hsu Vibe Code — Apps</title>
+  <meta name="description" content="Useful iOS apps by Mark Hsu — Big Word, GlycoPaws, Stash Bag." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -49,11 +49,35 @@
       color: var(--text-primary);
       text-decoration: none;
     }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      transition: color 0.2s;
+      font-family: inherit;
+    }
+    .lang-btn.active { color: var(--accent); }
+    .lang-btn:hover { color: var(--accent); }
+    .lang-sep { color: var(--border); font-size: 0.85rem; }
     header nav a {
       font-size: 0.9rem;
       color: var(--text-secondary);
       text-decoration: none;
-      margin-left: 1.5rem;
       transition: color 0.2s;
     }
     header nav a:hover { color: var(--accent); }
@@ -262,42 +286,46 @@
 <body>
 
 <header>
-  <a class="brand" href="#">徐馬克Vibe Code</a>
-  <nav>
-    <a href="#apps">Apps</a>
-  </nav>
+  <a class="brand" href="#" data-i18n="brand">Mark Hsu Vibe Code</a>
+  <div class="header-right">
+    <div class="lang-switcher">
+      <button id="btn-en" class="lang-btn active" onclick="setLang('en')">EN</button>
+      <span class="lang-sep">|</span>
+      <button id="btn-zh" class="lang-btn" onclick="setLang('zh')">中文</button>
+    </div>
+    <nav>
+      <a href="#apps" data-i18n="nav_apps">Apps</a>
+    </nav>
+  </div>
 </header>
 
 <!-- Hero -->
 <section class="hero">
-  <h1>實用工具 App</h1>
-  <p>專為日常生活打造的小工具，簡單好用，注重隱私。</p>
+  <h1 data-i18n="hero_title">Useful Apps</h1>
+  <p data-i18n="hero_desc">Practical tools for everyday life — simple, thoughtful, and privacy-first.</p>
 </section>
 
 <!-- Apps -->
 <section id="apps">
   <div style="max-width:960px;margin:0 auto;padding:0 1.5rem 1rem;">
-    <p class="section-label">目前上架</p>
+    <p class="section-label" data-i18n="section_label">Now Available</p>
   </div>
   <div class="apps-grid">
 
-    <!-- 老花救星 Big Word -->
+    <!-- Big Word -->
     <div class="app-card">
       <div class="app-card-top">
-        <div class="app-icon"><img src="logo.png" alt="老花救星 logo" /></div>
+        <div class="app-icon"><img src="logo.png" alt="Big Word logo" /></div>
         <div class="app-meta">
-          <h2>老花救星 Big Word</h2>
+          <h2 data-i18n="app1_name">Big Word</h2>
           <span class="tag">iOS</span>
         </div>
       </div>
-      <p class="app-desc">
-        專為老花眼與視力較弱使用者設計的大字閱讀輔助 App。
-        輸入或貼上文字，即時以超大字體顯示，輕鬆閱讀不費力。
-      </p>
+      <p class="app-desc" data-i18n="app1_desc">A large-text reading assistant designed for people with presbyopia or weak eyesight. Paste or type any text and display it instantly in a huge, easy-to-read font.</p>
       <div class="app-features">
-        <span>🔠 60–200px 字體</span>
-        <span>🎨 四種護眼主題</span>
-        <span>🔒 隱私優先</span>
+        <span data-i18n="app1_feat1">🔠 60–200px Font</span>
+        <span data-i18n="app1_feat2">🎨 4 Eye-friendly Themes</span>
+        <span data-i18n="app1_feat3">🔒 Privacy First</span>
       </div>
       <div class="app-actions">
         <a class="btn-store"
@@ -306,29 +334,26 @@
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
           </svg>
-          App Store 免費下載
+          <span data-i18n="app1_btn">Download on App Store</span>
         </a>
-        <a class="btn-privacy" href="#privacy-bigword">隱私權政策</a>
+        <a class="btn-privacy" href="#privacy-bigword" data-i18n="privacy_link">Privacy Policy</a>
       </div>
     </div>
 
-    <!-- GlycoPaws 貓咪血糖管家 -->
+    <!-- GlycoPaws -->
     <div class="app-card">
       <div class="app-card-top">
         <div class="app-icon"><img src="glycopaws_logo.png" alt="GlycoPaws logo" /></div>
         <div class="app-meta">
-          <h2>GlycoPaws 貓咪血糖管家</h2>
+          <h2 data-i18n="app2_name">GlycoPaws</h2>
           <span class="tag">iOS</span>
         </div>
       </div>
-      <p class="app-desc">
-        專為糖尿病貓咪飼主設計的血糖記錄與管理 App。
-        輕鬆記錄每日血糖、胰島素劑量與飲食，掌握毛孩健康趨勢。
-      </p>
+      <p class="app-desc" data-i18n="app2_desc">A blood glucose tracking and management app for diabetic cat owners. Easily log daily glucose readings, insulin doses, and meals to monitor your cat's health trends.</p>
       <div class="app-features">
-        <span>📈 血糖趨勢圖表</span>
-        <span>💉 胰島素記錄</span>
-        <span>🐱 多貓管理</span>
+        <span data-i18n="app2_feat1">📈 Glucose Trends</span>
+        <span data-i18n="app2_feat2">💉 Insulin Logging</span>
+        <span data-i18n="app2_feat3">🐱 Multi-cat Support</span>
       </div>
       <div class="app-actions">
         <a class="btn-store"
@@ -337,29 +362,26 @@
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
           </svg>
-          App Store 下載
+          <span data-i18n="app_btn_paid">Download on App Store</span>
         </a>
-        <a class="btn-privacy" href="#privacy-glycopaws">隱私權政策</a>
+        <a class="btn-privacy" href="#privacy-glycopaws" data-i18n="privacy_link">Privacy Policy</a>
       </div>
     </div>
 
-    <!-- 虛擬儲物袋 -->
+    <!-- Stash Bag -->
     <div class="app-card">
       <div class="app-card-top">
-        <div class="app-icon"><img src="virtual_bag_logo.png" alt="虛擬儲物袋 logo" /></div>
+        <div class="app-icon"><img src="virtual_bag_logo.png" alt="Stash Bag logo" /></div>
         <div class="app-meta">
-          <h2>虛擬儲物袋</h2>
+          <h2 data-i18n="app3_name">Stash Bag</h2>
           <span class="tag">iOS</span>
         </div>
       </div>
-      <p class="app-desc">
-        靈感來自乾坤袋的虛擬收納 App。
-        將生活中的物品分類整理，隨時查閱存放位置，告別找東西的煩惱。
-      </p>
+      <p class="app-desc" data-i18n="app3_desc">Inspired by the mythical Qiankun Bag, a virtual storage organizer. Categorize your belongings and quickly find where everything is stored.</p>
       <div class="app-features">
-        <span>🗂️ 分類收納</span>
-        <span>🔍 快速搜尋</span>
-        <span>📦 多袋管理</span>
+        <span data-i18n="app3_feat1">🗂️ Categories</span>
+        <span data-i18n="app3_feat2">🔍 Quick Search</span>
+        <span data-i18n="app3_feat3">📦 Multi-bag Support</span>
       </div>
       <div class="app-actions">
         <a class="btn-store"
@@ -368,30 +390,59 @@
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
           </svg>
-          App Store 下載
+          <span data-i18n="app_btn_paid">Download on App Store</span>
         </a>
-        <a class="btn-privacy" href="#privacy-virtualbag">隱私權政策</a>
+        <a class="btn-privacy" href="#privacy-virtualbag" data-i18n="privacy_link">Privacy Policy</a>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- Privacy Policy: 老花救星 Big Word -->
+<!-- Privacy Policy: Big Word -->
 <section class="privacy-section" id="privacy-bigword">
-  <div class="privacy-inner">
+  <div class="privacy-inner" data-lang="en">
+    <h2>Big Word Privacy Policy</h2>
+    <p class="updated">Last updated: February 2026</p>
+    <p>Thank you for using Big Word. We value your privacy. This policy explains how the app handles your information.</p>
+    <h3>1. Information We Collect</h3>
+    <p>The app processes data on a minimal basis:</p>
+    <ul>
+      <li><strong>Local settings</strong>: Your preferences such as font size, font weight, and color theme are stored locally on your device (SharedPreferences) and are never uploaded to any server.</li>
+      <li><strong>Input text</strong>: Text you type or paste is used only for real-time large-text preview and is never stored or transmitted.</li>
+    </ul>
+    <h3>2. Information We Do Not Collect</h3>
+    <ul>
+      <li>No login or account registration required</li>
+      <li>No personal identification information (name, email, phone)</li>
+      <li>No location, camera, or microphone data</li>
+      <li>No cloud sync or backup</li>
+    </ul>
+    <h3>3. Third-Party Services</h3>
+    <p>This app uses <strong>Google Mobile Ads</strong> to display banner ads. Google may collect device identifiers and ad interaction data in accordance with its privacy policy to serve personalized ads. Please visit <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy &amp; Terms</a> for details.</p>
+    <h3>4. Data Storage &amp; Security</h3>
+    <ul>
+      <li>All settings are stored on your device and deleted when the app is uninstalled</li>
+      <li>We do not transmit your data to external servers (except ad services handled by Google under their policy)</li>
+    </ul>
+    <h3>5. Children's Privacy</h3>
+    <p>This app is not designed for children under 13 and does not intentionally collect personal information from children.</p>
+    <h3>6. Policy Changes</h3>
+    <p>We may update this policy due to regulatory or product changes. Updates will be announced within the app. Continued use constitutes acceptance of the updated policy.</p>
+    <h3>7. Contact Us</h3>
+    <p>For any questions about this privacy policy, please contact us through the App Store page.</p>
+    <p style="margin-top:2rem;font-size:0.82rem;color:var(--text-secondary);">© 2026 Big Word</p>
+  </div>
+  <div class="privacy-inner" data-lang="zh" style="display:none">
     <h2>老花救星 隱私權政策</h2>
     <p class="updated">最後更新：2026 年 2 月</p>
-
     <p>感謝您使用「老花救星」。我們重視您的隱私，本政策說明本應用程式如何處理您的資訊。</p>
-
     <h3>一、我們收集的資訊</h3>
     <p>本應用程式以「最小必要」為原則處理資料：</p>
     <ul>
       <li><strong>本地設定</strong>：您調整的字體大小、字體粗細、顏色主題等偏好設定，僅儲存於您裝置內的本地儲存空間（SharedPreferences），不會上傳至任何伺服器。</li>
       <li><strong>輸入文字</strong>：您在應用程式中輸入或貼上的文字，僅用於即時顯示大字預覽，不會被儲存或傳送。</li>
     </ul>
-
     <h3>二、我們不收集的資訊</h3>
     <ul>
       <li>本應用程式不要求登入或註冊帳號</li>
@@ -399,48 +450,67 @@
       <li>不收集位置、相機或麥克風資料</li>
       <li>不進行雲端同步或備份</li>
     </ul>
-
     <h3>三、第三方服務</h3>
-    <p>
-      本應用程式使用 <strong>Google 行動廣告</strong>（Google Mobile Ads）顯示橫幅廣告。
-      Google 可能根據其隱私權政策收集裝置識別碼、廣告互動等資料，以提供個人化廣告。
-      您可至 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隱私權與條款</a> 了解詳情。
-    </p>
-
+    <p>本應用程式使用 <strong>Google 行動廣告</strong>（Google Mobile Ads）顯示橫幅廣告。Google 可能根據其隱私權政策收集裝置識別碼、廣告互動等資料，以提供個人化廣告。您可至 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隱私權與條款</a> 了解詳情。</p>
     <h3>四、資料儲存與安全</h3>
     <ul>
       <li>所有設定資料僅存於您裝置內，刪除應用程式即一併清除</li>
       <li>我們不會將您的資料傳送至外部伺服器（廣告服務除外，由 Google 依其政策處理）</li>
     </ul>
-
     <h3>五、兒童隱私</h3>
     <p>本應用程式不針對 13 歲以下兒童設計，亦不刻意收集兒童個人資訊。</p>
-
     <h3>六、政策變更</h3>
     <p>我們可能因法規或產品變更而更新本政策，更新後將於應用程式內公布。繼續使用即視為接受更新內容。</p>
-
     <h3>七、聯絡我們</h3>
     <p>若對本隱私權政策有任何疑問，請透過 App Store 應用程式頁面與我們聯絡。</p>
-
     <p style="margin-top:2rem;font-size:0.82rem;color:var(--text-secondary);">© 2026 老花救星 Big Word</p>
   </div>
 </section>
 
 <!-- Privacy Policy: GlycoPaws -->
 <section class="privacy-section" id="privacy-glycopaws">
-  <div class="privacy-inner">
+  <div class="privacy-inner" data-lang="en">
+    <h2>GlycoPaws Privacy Policy</h2>
+    <p class="updated">Last updated: February 2026</p>
+    <p>Thank you for using GlycoPaws. We value your privacy and your cat's health data. This policy explains how the app handles your information.</p>
+    <h3>1. Information We Collect</h3>
+    <p>The app processes data on a minimal basis:</p>
+    <ul>
+      <li><strong>Local health records</strong>: Blood glucose values, insulin doses, meals, and weight data you enter are stored locally on your device and never uploaded to any server.</li>
+      <li><strong>Preferences</strong>: App settings (e.g., units, reminders) are stored locally on your device.</li>
+    </ul>
+    <h3>2. Information We Do Not Collect</h3>
+    <ul>
+      <li>No login or account registration required</li>
+      <li>No personal identification information (name, email, phone)</li>
+      <li>No location, camera, or microphone data</li>
+      <li>No cloud sync or backup</li>
+    </ul>
+    <h3>3. Third-Party Services</h3>
+    <p>This app uses <strong>Google Mobile Ads</strong> to display ads. Google may collect device identifiers in accordance with its privacy policy. Please refer to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy &amp; Terms</a> for details.</p>
+    <h3>4. Data Storage &amp; Security</h3>
+    <ul>
+      <li>All health records are stored on your device and deleted when the app is uninstalled</li>
+      <li>We do not transmit your data to external servers (except ad services handled by Google)</li>
+    </ul>
+    <h3>5. Children's Privacy</h3>
+    <p>This app is not designed for children under 13 and does not intentionally collect personal information from children.</p>
+    <h3>6. Policy Changes</h3>
+    <p>We may update this policy due to regulatory or product changes. Updates will be announced within the app. Continued use constitutes acceptance of the updated policy.</p>
+    <h3>7. Contact Us</h3>
+    <p>For any questions about this privacy policy, please contact us through the App Store page.</p>
+    <p style="margin-top:2rem;font-size:0.82rem;color:var(--text-secondary);">© 2026 GlycoPaws</p>
+  </div>
+  <div class="privacy-inner" data-lang="zh" style="display:none">
     <h2>GlycoPaws 隱私權政策</h2>
     <p class="updated">最後更新：2026 年 2 月</p>
-
     <p>感謝您使用「GlycoPaws 貓咪血糖管家」。我們重視您與毛孩的隱私，本政策說明本應用程式如何處理您的資訊。</p>
-
     <h3>一、我們收集的資訊</h3>
     <p>本應用程式以「最小必要」為原則處理資料：</p>
     <ul>
       <li><strong>本地健康記錄</strong>：您輸入的血糖數值、胰島素劑量、飲食與體重等資料，僅儲存於您裝置內的本地儲存空間，不會上傳至任何伺服器。</li>
       <li><strong>偏好設定</strong>：App 設定（如單位、提醒）僅儲存於裝置本地。</li>
     </ul>
-
     <h3>二、我們不收集的資訊</h3>
     <ul>
       <li>本應用程式不要求登入或註冊帳號</li>
@@ -448,85 +518,182 @@
       <li>不收集位置、相機或麥克風資料</li>
       <li>不進行雲端同步或備份</li>
     </ul>
-
     <h3>三、第三方服務</h3>
-    <p>
-      本應用程式使用 <strong>Google 行動廣告</strong>（Google Mobile Ads）顯示廣告。
-      Google 可能根據其隱私權政策收集裝置識別碼等資料。
-      詳情請參閱 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隱私權與條款</a>。
-    </p>
-
+    <p>本應用程式使用 <strong>Google 行動廣告</strong>（Google Mobile Ads）顯示廣告。Google 可能根據其隱私權政策收集裝置識別碼等資料。詳情請參閱 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隱私權與條款</a>。</p>
     <h3>四、資料儲存與安全</h3>
     <ul>
       <li>所有健康記錄僅存於您裝置內，刪除應用程式即一併清除</li>
       <li>我們不會將您的資料傳送至外部伺服器（廣告服務除外，由 Google 依其政策處理）</li>
     </ul>
-
     <h3>五、兒童隱私</h3>
     <p>本應用程式不針對 13 歲以下兒童設計，亦不刻意收集兒童個人資訊。</p>
-
     <h3>六、政策變更</h3>
     <p>我們可能因法規或產品變更而更新本政策，更新後將於應用程式內公布。繼續使用即視為接受更新內容。</p>
-
     <h3>七、聯絡我們</h3>
     <p>若對本隱私權政策有任何疑問，請透過 App Store 應用程式頁面與我們聯絡。</p>
-
     <p style="margin-top:2rem;font-size:0.82rem;color:var(--text-secondary);">© 2026 GlycoPaws 貓咪血糖管家</p>
   </div>
 </section>
 
-<!-- Privacy Policy: 虛擬儲物袋 -->
+<!-- Privacy Policy: Stash Bag -->
 <section class="privacy-section" id="privacy-virtualbag">
-  <div class="privacy-inner">
+  <div class="privacy-inner" data-lang="en">
+    <h2>Stash Bag Privacy Policy</h2>
+    <p class="updated">Last updated: February 2026</p>
+    <p>This privacy policy applies to StashBag (hereinafter referred to as "the App") regarding the collection, use, and protection of personal data. By using the App, you agree to the terms of this policy.</p>
+    <h3>1. Data Collection &amp; Storage</h3>
+    <p>The App is designed with a "local-first" approach. Inventory data you create (including collectibles, consumables, photos, prices, storage locations, tags, notes, etc.) is stored on your device's local storage and is not automatically uploaded to any cloud service or third-party server.</p>
+    <p>The App uses the following local storage methods:</p>
+    <ul>
+      <li><strong>SQLite database</strong>: stores inventory items and related fields</li>
+      <li><strong>SharedPreferences</strong>: stores app preferences (e.g., dark mode, language, custom units)</li>
+      <li><strong>Local file system</strong>: stores item photos</li>
+    </ul>
+    <h3>2. Third-Party Services</h3>
+    <p>The App may use the following third-party services to provide specific features:</p>
+    <ul>
+      <li><strong>Rebrickable API</strong>: used for LEGO set search functionality. When you use this feature, your search query is sent to Rebrickable servers to retrieve set information. Please refer to Rebrickable's privacy policy for details on their data practices.</li>
+      <li><strong>Camera / Photo Library</strong>: used to take or select item photos. Photos are stored locally only and are not uploaded externally.</li>
+      <li><strong>Share feature</strong>: when you use the share feature, data is handled by the app you choose. The App does not control the privacy practices of those apps.</li>
+    </ul>
+    <h3>3. Purpose of Data Use</h3>
+    <p>Data collected and stored by the App is used solely to:</p>
+    <ul>
+      <li>Provide core features such as inventory management, shopping lists, and statistics</li>
+      <li>Display the interface according to your preferences (e.g., dark mode, language)</li>
+      <li>Support backup export / import functionality (sharing is entirely at your discretion)</li>
+    </ul>
+    <h3>4. Data Security &amp; Deletion</h3>
+    <p>Your data is stored on your local device. The App does not actively transmit data to external parties. If you uninstall the App, all local data will be removed.</p>
+    <p>You can export a JSON backup via "Settings &gt; Data Management &gt; Export Backup", or restore data via "Import Backup".</p>
+    <h3>5. Policy Updates</h3>
+    <p>This privacy policy may be updated due to legal requirements or product changes. For significant changes, we will provide a notification or update notice within the App. Continued use of the App constitutes acceptance of the updated policy.</p>
+    <h3>6. Contact</h3>
+    <p>If you have any questions about this privacy policy, please contact us through the App Store page or the developer's contact channel.</p>
+    <h3>7. Data Source</h3>
+    <p>LEGO set data is provided by the Rebrickable API.</p>
+    <h3>8. Trademark Notice</h3>
+    <p>LEGO® is a trademark of the LEGO Group. This application is not sponsored, authorized, or endorsed by the LEGO Group.</p>
+    <p style="margin-top:2rem;font-size:0.82rem;color:var(--text-secondary);">© 2026 Stash Bag</p>
+  </div>
+  <div class="privacy-inner" data-lang="zh" style="display:none">
     <h2>虛擬儲物袋 隱私權政策</h2>
     <p class="updated">最後更新：2026 年 2 月</p>
-
-    <p>感謝您使用「虛擬儲物袋」。我們重視您的隱私，本政策說明本應用程式如何處理您的資訊。</p>
-
-    <h3>一、我們收集的資訊</h3>
-    <p>本應用程式以「最小必要」為原則處理資料：</p>
+    <p>本隱私政策適用於 StashBag（以下稱「本應用」）所蒐集、使用與保護之個人資料。使用本應用即表示您同意本政策之內容。</p>
+    <h3>一、資料蒐集與儲存</h3>
+    <p>本應用採「本機優先」設計，您所建立的庫存資料（包含收藏品、消耗品、照片、價格、存放地點、標籤、備註等）均儲存於您裝置的本地儲存空間，不會自動上傳至任何雲端或第三方伺服器。</p>
+    <p>本應用使用以下本地儲存方式：</p>
     <ul>
-      <li><strong>本地收納記錄</strong>：您新增的物品名稱、分類、存放位置等資料，僅儲存於您裝置內的本地儲存空間，不會上傳至任何伺服器。</li>
-      <li><strong>偏好設定</strong>：App 設定僅儲存於裝置本地。</li>
+      <li><strong>SQLite 資料庫</strong>：儲存庫存項目與相關欄位</li>
+      <li><strong>SharedPreferences</strong>：儲存應用偏好設定（如深色模式、語言、自訂單位等）</li>
+      <li><strong>本機檔案系統</strong>：儲存物品照片</li>
     </ul>
-
-    <h3>二、我們不收集的資訊</h3>
+    <h3>二、第三方服務</h3>
+    <p>本應用可能使用以下第三方服務以提供特定功能：</p>
     <ul>
-      <li>本應用程式不要求登入或註冊帳號</li>
-      <li>不收集個人身份資訊（如姓名、電子郵件、電話）</li>
-      <li>不收集位置、相機或麥克風資料</li>
-      <li>不進行雲端同步或備份</li>
+      <li><strong>Rebrickable API</strong>：用於 LEGO 積木套組搜尋功能。當您使用此功能時，搜尋關鍵字會傳送至 Rebrickable 伺服器以取得套組資訊。請參閱 Rebrickable 的隱私權政策以了解其資料處理方式。</li>
+      <li><strong>相機 / 相簿存取</strong>：用於拍攝或選擇物品照片，照片僅儲存於本機，不會上傳至外部。</li>
+      <li><strong>分享功能</strong>：當您使用分享功能時，資料將由您選擇的應用程式處理，本應用不控制該等應用之隱私權實務。</li>
     </ul>
-
-    <h3>三、第三方服務</h3>
-    <p>
-      本應用程式使用 <strong>Google 行動廣告</strong>（Google Mobile Ads）顯示廣告。
-      Google 可能根據其隱私權政策收集裝置識別碼等資料。
-      詳情請參閱 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隱私權與條款</a>。
-    </p>
-
-    <h3>四、資料儲存與安全</h3>
+    <h3>三、資料使用目的</h3>
+    <p>本應用蒐集與儲存之資料僅用於：</p>
     <ul>
-      <li>所有收納記錄僅存於您裝置內，刪除應用程式即一併清除</li>
-      <li>我們不會將您的資料傳送至外部伺服器（廣告服務除外，由 Google 依其政策處理）</li>
+      <li>提供庫存管理、購物清單、統計等核心功能</li>
+      <li>依您的偏好顯示介面（如深色模式、語言）</li>
+      <li>支援備份匯出 / 匯入功能（由您自行決定是否分享）</li>
     </ul>
-
-    <h3>五、兒童隱私</h3>
-    <p>本應用程式不針對 13 歲以下兒童設計，亦不刻意收集兒童個人資訊。</p>
-
-    <h3>六、政策變更</h3>
-    <p>我們可能因法規或產品變更而更新本政策，更新後將於應用程式內公布。繼續使用即視為接受更新內容。</p>
-
-    <h3>七、聯絡我們</h3>
-    <p>若對本隱私權政策有任何疑問，請透過 App Store 應用程式頁面與我們聯絡。</p>
-
+    <h3>四、資料安全與刪除</h3>
+    <p>您的資料儲存於本機裝置，本應用不會主動將資料傳送至外部。若您卸載本應用，相關本地資料將一併移除。</p>
+    <p>您可透過「設定 &gt; 資料管理 &gt; 匯出備份」取得 JSON 格式備份，或透過「匯入備份」還原資料。</p>
+    <h3>五、政策更新</h3>
+    <p>本隱私政策可能因法規或產品變更而更新。重大變更時，我們將於應用內提供通知或更新說明。繼續使用本應用即視為接受更新後之政策。</p>
+    <h3>六、聯絡方式</h3>
+    <p>若您對本隱私政策有任何疑問，請透過應用商店頁面或開發者提供的聯絡管道與我們聯繫。</p>
+    <h3>七、資料來源說明</h3>
+    <p>積木套組查詢的資料是由 Rebrickable 的 API 提供。</p>
+    <h3>八、商標聲明</h3>
+    <p>LEGO® 是 LEGO 集團的商標。本應用程式並非由 LEGO 集團贊助、授權或背書。</p>
     <p style="margin-top:2rem;font-size:0.82rem;color:var(--text-secondary);">© 2026 虛擬儲物袋</p>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 徐馬克Vibe Code &nbsp;|&nbsp; <a href="#apps">Apps</a></p>
+  <p><span data-i18n="footer">© 2026 Mark Hsu Vibe Code</span> &nbsp;|&nbsp; <a href="#apps">Apps</a></p>
 </footer>
+
+<script>
+  const i18n = {
+    en: {
+      brand:       'Mark Hsu Vibe Code',
+      nav_apps:    'Apps',
+      hero_title:  'Useful Apps',
+      hero_desc:   'Practical tools for everyday life — simple, thoughtful, and privacy-first.',
+      section_label: 'Now Available',
+      app1_name:   'Big Word',
+      app1_desc:   'A large-text reading assistant designed for people with presbyopia or weak eyesight. Paste or type any text and display it instantly in a huge, easy-to-read font.',
+      app1_feat1:  '🔠 60–200px Font',
+      app1_feat2:  '🎨 4 Eye-friendly Themes',
+      app1_feat3:  '🔒 Privacy First',
+      app1_btn:    'Download on App Store (Free)',
+      app_btn_paid:'Download on App Store',
+      privacy_link:'Privacy Policy',
+      app2_name:   'GlycoPaws',
+      app2_desc:   'A blood glucose tracking and management app for diabetic cat owners. Easily log daily glucose readings, insulin doses, and meals to monitor your cat\'s health trends.',
+      app2_feat1:  '📈 Glucose Trends',
+      app2_feat2:  '💉 Insulin Logging',
+      app2_feat3:  '🐱 Multi-cat Support',
+      app3_name:   'Stash Bag',
+      app3_desc:   'Inspired by the mythical Qiankun Bag, a virtual storage organizer. Categorize your belongings and quickly find where everything is stored.',
+      app3_feat1:  '🗂️ Categories',
+      app3_feat2:  '🔍 Quick Search',
+      app3_feat3:  '📦 Multi-bag Support',
+      footer:      '© 2026 Mark Hsu Vibe Code',
+    },
+    zh: {
+      brand:       '徐馬克Vibe Code',
+      nav_apps:    'Apps',
+      hero_title:  '實用工具 App',
+      hero_desc:   '專為日常生活打造的小工具，簡單好用，注重隱私。',
+      section_label: '目前上架',
+      app1_name:   '老花救星 Big Word',
+      app1_desc:   '專為老花眼與視力較弱使用者設計的大字閱讀輔助 App。輸入或貼上文字，即時以超大字體顯示，輕鬆閱讀不費力。',
+      app1_feat1:  '🔠 60–200px 字體',
+      app1_feat2:  '🎨 四種護眼主題',
+      app1_feat3:  '🔒 隱私優先',
+      app1_btn:    'App Store 免費下載',
+      app_btn_paid:'App Store 下載',
+      privacy_link:'隱私權政策',
+      app2_name:   'GlycoPaws 貓咪血糖管家',
+      app2_desc:   '專為糖尿病貓咪飼主設計的血糖記錄與管理 App。輕鬆記錄每日血糖、胰島素劑量與飲食，掌握毛孩健康趨勢。',
+      app2_feat1:  '📈 血糖趨勢圖表',
+      app2_feat2:  '💉 胰島素記錄',
+      app2_feat3:  '🐱 多貓管理',
+      app3_name:   '虛擬儲物袋',
+      app3_desc:   '靈感來自乾坤袋的虛擬收納 App。將生活中的物品分類整理，隨時查閱存放位置，告別找東西的煩惱。',
+      app3_feat1:  '🗂️ 分類收納',
+      app3_feat2:  '🔍 快速搜尋',
+      app3_feat3:  '📦 多袋管理',
+      footer:      '© 2026 徐馬克Vibe Code',
+    }
+  };
+
+  function setLang(lang) {
+    document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (i18n[lang][key] !== undefined) el.textContent = i18n[lang][key];
+    });
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+    });
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    localStorage.setItem('lang', lang);
+  }
+
+  const savedLang = localStorage.getItem('lang') || 'en';
+  setLang(savedLang);
+</script>
 
 </body>
 </html>
