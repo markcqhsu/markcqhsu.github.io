@@ -281,12 +281,157 @@
     }
     footer a { color: var(--text-secondary); text-decoration: none; }
     footer a:hover { color: var(--accent); }
+
+    /* ── Brand version badge ── */
+    .brand-version {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-left: 0.4rem;
+      opacity: 0.7;
+    }
+
+    /* ── Web Services Grid ── */
+    .web-services-grid {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.5rem 5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .service-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      transform: translateY(-2px);
+    }
+
+    .service-screenshot {
+      border-bottom: 1px solid var(--border);
+      background: #e8e8ed;
+    }
+    .browser-chrome {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.5rem 0.75rem;
+      background: #e8e8ed;
+    }
+    .browser-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .browser-dot:nth-child(1) { background: #ff5f57; }
+    .browser-dot:nth-child(2) { background: #febc2e; }
+    .browser-dot:nth-child(3) { background: #28c840; }
+    .browser-url {
+      flex: 1;
+      font-size: 0.7rem;
+      color: #6e6e73;
+      background: #fff;
+      border-radius: 4px;
+      padding: 0.2rem 0.5rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .screenshot-wrapper {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      position: relative;
+      background: #f0f0f2;
+    }
+    .screenshot-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    .screenshot-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--text-secondary);
+      opacity: 0.4;
+    }
+
+    .service-body {
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      flex: 1;
+    }
+    .service-meta h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+    .service-meta .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: #e6f4ea;
+      color: #1e8c3a;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+    }
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .service-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .service-features span {
+      font-size: 0.78rem;
+      background: var(--bg);
+      color: var(--text-secondary);
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+    .btn-visit {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: opacity 0.2s;
+      align-self: flex-start;
+    }
+    .btn-visit:hover { opacity: 0.82; }
   </style>
 </head>
 <body>
 
 <header>
-  <a class="brand" href="#" data-i18n="brand">Mark Hsu Vibe Code</a>
+  <a class="brand" href="#" data-i18n="brand">Mark Hsu Vibe Code</a><span class="brand-version">V1.0.2</span>
   <div class="header-right">
     <div class="lang-switcher">
       <button id="btn-en" class="lang-btn active" onclick="setLang('en')">EN</button>
@@ -297,8 +442,9 @@
       <span class="lang-sep">|</span>
       <button id="btn-es" class="lang-btn" onclick="setLang('es')">Español</button>
     </div>
-    <nav>
+    <nav style="display:flex;gap:1.5rem;">
       <a href="#apps" data-i18n="nav_apps">Apps</a>
+      <a href="#web-services" data-i18n="nav_web">Online Services</a>
     </nav>
   </div>
 </header>
@@ -481,6 +627,100 @@
           <span data-i18n="app1_btn">Download on App Store (Free)</span>
         </a>
         <a class="btn-privacy" href="#privacy-thcmatch3" data-i18n="privacy_link">Privacy Policy</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Online Services -->
+<section id="web-services" style="background:#fff;border-top:1px solid var(--border);padding-top:4rem;">
+  <div style="max-width:960px;margin:0 auto;padding:0 1.5rem 1rem;">
+    <p class="section-label" data-i18n="section_label_web">Online Services</p>
+  </div>
+  <div class="web-services-grid">
+
+    <!-- QRCode Activity Page -->
+    <div class="service-card">
+      <div class="service-screenshot">
+        <div class="browser-chrome">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-url">markcqhsu.github.io/QR_Demo</span>
+        </div>
+        <div class="screenshot-wrapper">
+          <img src="screenshots/web1_qr_demo.png" alt="QRCode Activity Page Screenshot" loading="lazy" />
+        </div>
+      </div>
+      <div class="service-body">
+        <div class="service-meta">
+          <h2 data-i18n="web1_name">QRCode Activity Page</h2>
+          <span class="tag">Web</span>
+        </div>
+        <p class="service-desc" data-i18n="web1_desc">A mobile QR code scan activity display page with multi-language support. Visitors scan an in-venue QR code and see a personalized event landing page instantly.</p>
+        <div class="service-features">
+          <span data-i18n="web1_feat1">📱 QR Scan Flow</span>
+          <span data-i18n="web1_feat2">🌐 Multi-language</span>
+          <span data-i18n="web1_feat3">🎯 Event Ready</span>
+        </div>
+        <a class="btn-visit" href="https://markcqhsu.github.io/QR_Demo/index.html?code=TEST001" target="_blank" rel="noopener" data-i18n="btn_visit">Visit Website →</a>
+      </div>
+    </div>
+
+    <!-- Industry News -->
+    <div class="service-card">
+      <div class="service-screenshot">
+        <div class="browser-chrome">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-url">markcqhsu.github.io/Industry_News</span>
+        </div>
+        <div class="screenshot-wrapper">
+          <img src="screenshots/web2_industry_news.png" alt="Beverage Packaging Industry News Screenshot" loading="lazy" />
+        </div>
+      </div>
+      <div class="service-body">
+        <div class="service-meta">
+          <h2 data-i18n="web2_name">Beverage Packaging Industry News</h2>
+          <span class="tag">Web</span>
+        </div>
+        <p class="service-desc" data-i18n="web2_desc">An AI-powered industry intelligence site for beverage packaging. News and key summaries are added via Claude, covering multiple regions worldwide.</p>
+        <div class="service-features">
+          <span data-i18n="web2_feat1">🤖 AI Summarized</span>
+          <span data-i18n="web2_feat2">🌏 Multi-region</span>
+          <span data-i18n="web2_feat3">📦 Packaging Focus</span>
+        </div>
+        <a class="btn-visit" href="https://markcqhsu.github.io/Industry_News/" target="_blank" rel="noopener" data-i18n="btn_visit">Visit Website →</a>
+      </div>
+    </div>
+
+    <!-- Beverage Intelligence -->
+    <div class="service-card">
+      <div class="service-screenshot">
+        <div class="browser-chrome">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-url">beverage-intelligence-717999637092.us-west1.run.app</span>
+        </div>
+        <div class="screenshot-wrapper">
+          <img src="screenshots/web3_beverage_intel.png" alt="Beverage Intelligence Screenshot" loading="lazy" />
+        </div>
+      </div>
+      <div class="service-body">
+        <div class="service-meta">
+          <h2 data-i18n="web3_name">Beverage Intelligence</h2>
+          <span class="tag">Web</span>
+        </div>
+        <p class="service-desc" data-i18n="web3_desc">A beverage market intelligence tool for internal teams. Helps staff gather industry insights with whitelist management and Google database integration.</p>
+        <div class="service-features">
+          <span data-i18n="web3_feat1">🔍 Market Research</span>
+          <span data-i18n="web3_feat2">🔐 Whitelist Access</span>
+          <span data-i18n="web3_feat3">☁️ Google DB</span>
+        </div>
+        <a class="btn-visit" href="https://beverage-intelligence-717999637092.us-west1.run.app" target="_blank" rel="noopener" data-i18n="btn_visit">Visit Website →</a>
       </div>
     </div>
 
@@ -1316,7 +1556,7 @@
 </section>
 
 <footer>
-  <p><span data-i18n="footer">© 2026 Mark Hsu Vibe Code</span> &nbsp;|&nbsp; <a href="#apps">Apps</a></p>
+  <p><span data-i18n="footer">© 2026 Mark Hsu Vibe Code</span> &nbsp;|&nbsp; <a href="#apps">Apps</a> &nbsp;|&nbsp; <a href="#web-services" data-i18n="nav_web">Online Services</a></p>
 </footer>
 
 <script>
@@ -1335,6 +1575,24 @@
       app1_btn:    'Download on App Store (Free)',
       app_btn_paid:'Download on App Store',
       privacy_link:'Privacy Policy',
+      nav_web:     'Online Services',
+      section_label_web: 'Online Services',
+      btn_visit:   'Visit Website →',
+      web1_name:   'QRCode Activity Page',
+      web1_desc:   'A mobile QR code scan activity display page with multi-language support. Visitors scan an in-venue QR code and see a personalized event landing page instantly.',
+      web1_feat1:  '📱 QR Scan Flow',
+      web1_feat2:  '🌐 Multi-language',
+      web1_feat3:  '🎯 Event Ready',
+      web2_name:   'Beverage Packaging Industry News',
+      web2_desc:   'An AI-powered industry intelligence site for beverage packaging. News and key summaries are added via Claude, covering multiple regions worldwide.',
+      web2_feat1:  '🤖 AI Summarized',
+      web2_feat2:  '🌏 Multi-region',
+      web2_feat3:  '📦 Packaging Focus',
+      web3_name:   'Beverage Intelligence',
+      web3_desc:   'A beverage market intelligence tool for internal teams. Helps staff gather industry insights with whitelist management and Google database integration.',
+      web3_feat1:  '🔍 Market Research',
+      web3_feat2:  '🔐 Whitelist Access',
+      web3_feat3:  '☁️ Google DB',
       app2_name:   'GlycoPaws',
       app2_desc:   'A blood glucose tracking and management app for diabetic cat owners. Easily log daily glucose readings, insulin doses, and meals to monitor your cat\'s health trends.',
       app2_feat1:  '📈 Glucose Trends',
@@ -1376,6 +1634,24 @@
       app1_btn:    'App Store 免費下載',
       app_btn_paid:'App Store 下載',
       privacy_link:'隱私權政策',
+      nav_web:     '線上服務',
+      section_label_web: '線上服務',
+      btn_visit:   '前往網站 →',
+      web1_name:   'QRCode 活動展示頁面',
+      web1_desc:   '手機掃描館內 QRCode 的活動展示頁面，支援多國語言切換。訪客掃碼後即可看到個人化的活動資訊頁面。',
+      web1_feat1:  '📱 QR 掃碼流程',
+      web1_feat2:  '🌐 多國語言',
+      web1_feat3:  '🎯 活動專用',
+      web2_name:   '飲料包材產業情報網站',
+      web2_desc:   '透過 Claude AI 新增各地區飲料包材產業新聞，同時自動生成重點摘要，掌握全球市場動態。',
+      web2_feat1:  '🤖 AI 摘要',
+      web2_feat2:  '🌏 多地區新聞',
+      web2_feat3:  '📦 包材產業聚焦',
+      web3_name:   '飲料情報搜集網站',
+      web3_desc:   '協助同仁搜集飲料市場情報資訊的內部工具，支援白名單管理與 Google 資料庫整合。',
+      web3_feat1:  '🔍 市場情報搜集',
+      web3_feat2:  '🔐 白名單管理',
+      web3_feat3:  '☁️ Google 資料庫',
       app2_name:   'GlycoPaws 貓咪血糖管家',
       app2_desc:   '專為糖尿病貓咪飼主設計的血糖記錄與管理 App。輕鬆記錄每日血糖、胰島素劑量與飲食，掌握毛孩健康趨勢。',
       app2_feat1:  '📈 血糖趨勢圖表',
@@ -1417,6 +1693,24 @@
       app1_btn:    'App Storeから無料ダウンロード',
       app_btn_paid:'App Storeからダウンロード',
       privacy_link:'プライバシーポリシー',
+      nav_web:     'オンラインサービス',
+      section_label_web: 'オンラインサービス',
+      btn_visit:   'ウェブサイトを開く →',
+      web1_name:   'QRコード活動展示ページ',
+      web1_desc:   '会場内QRコードをスマートフォンでスキャンするイベント展示ページ。多言語対応で来場者に合わせた案内を即座に表示します。',
+      web1_feat1:  '📱 QRスキャン',
+      web1_feat2:  '🌐 多言語対応',
+      web1_feat3:  '🎯 イベント向け',
+      web2_name:   '飲料包材業界情報サイト',
+      web2_desc:   'Claude AIを活用した飲料包材業界のインテリジェンスサイト。各地域のニュースとポイント要約を自動生成し、グローバル市場の動向を把握できます。',
+      web2_feat1:  '🤖 AI要約',
+      web2_feat2:  '🌏 複数地域',
+      web2_feat3:  '📦 包材業界特化',
+      web3_name:   '飲料インテリジェンス',
+      web3_desc:   '社内スタッフが飲料市場情報を収集するためのツール。ホワイトリスト管理とGoogleデータベース統合に対応。',
+      web3_feat1:  '🔍 市場調査',
+      web3_feat2:  '🔐 ホワイトリスト',
+      web3_feat3:  '☁️ Google DB',
       app2_name:   'GlycoPaws',
       app2_desc:   '糖尿病の猫を飼うオーナー向けの血糖値追跡・管理アプリ。毎日の血糖値、インスリン投与量、食事を記録して、猫の健康状態をモニタリングできます。',
       app2_feat1:  '📈 血糖値トレンド',
@@ -1458,6 +1752,24 @@
       app1_btn:    'Descargar en App Store (Gratis)',
       app_btn_paid:'Descargar en App Store',
       privacy_link:'Política de Privacidad',
+      nav_web:     'Servicios en Línea',
+      section_label_web: 'Servicios en Línea',
+      btn_visit:   'Visitar Sitio →',
+      web1_name:   'Página de Actividad QRCode',
+      web1_desc:   'Página de exhibición de actividad con escaneo QR móvil con soporte multilingüe. Los visitantes escanean un código QR en el lugar y ven una página de evento personalizada al instante.',
+      web1_feat1:  '📱 Flujo QR',
+      web1_feat2:  '🌐 Multilingüe',
+      web1_feat3:  '🎯 Listo para Eventos',
+      web2_name:   'Noticias de la Industria de Embalaje de Bebidas',
+      web2_desc:   'Sitio de inteligencia de la industria de embalaje de bebidas impulsado por IA. Las noticias y resúmenes clave se añaden mediante Claude, cubriendo múltiples regiones mundiales.',
+      web2_feat1:  '🤖 Resumen IA',
+      web2_feat2:  '🌏 Multirregión',
+      web2_feat3:  '📦 Enfoque Embalaje',
+      web3_name:   'Inteligencia de Bebidas',
+      web3_desc:   'Herramienta de inteligencia de mercado de bebidas para equipos internos. Ayuda al personal a recopilar información del sector con gestión de lista blanca e integración con base de datos de Google.',
+      web3_feat1:  '🔍 Investigación de Mercado',
+      web3_feat2:  '🔐 Lista Blanca',
+      web3_feat3:  '☁️ Google DB',
       app2_name:   'GlycoPaws',
       app2_desc:   'Una app de seguimiento y gestión de glucosa en sangre para dueños de gatos diabéticos. Registra fácilmente las lecturas diarias de glucosa, dosis de insulina y comidas para monitorear las tendencias de salud de tu gato.',
       app2_feat1:  '📈 Tendencias de Glucosa',
