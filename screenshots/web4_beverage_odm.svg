@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="800" viewBox="0 0 1440 800">
+  <!-- Background -->
+  <rect width="1440" height="800" fill="#f0f0f2"/>
+
+  <!-- Top nav bar -->
+  <rect width="1440" height="52" fill="#ffffff" stroke="#e0e0e5" stroke-width="1"/>
+  <text x="20" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="13" font-weight="700" fill="#1a2744">THC Beverage ODM</text>
+  <text x="20" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="10" fill="#6e6e73">THC PRODUCTION LINE FINDER</text>
+  <text x="88" y="21" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9" fill="#888">v1.0.58</text>
+  <!-- Language switcher -->
+  <rect x="1316" y="14" width="44" height="24" rx="5" fill="#1a2744"/>
+  <text x="1338" y="30" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">中文</text>
+  <text x="1372" y="30" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#555" text-anchor="middle">EN</text>
+  <text x="1410" y="30" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#555" text-anchor="middle">日本語</text>
+
+  <!-- THC Logo block -->
+  <rect x="624" y="160" width="56" height="56" rx="8" fill="#1a3a8c"/>
+  <text x="652" y="197" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="18" font-weight="900" fill="#ffffff" text-anchor="middle">THC</text>
+  <!-- Company name -->
+  <text x="692" y="185" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="20" font-weight="700" fill="#2d2d2d" letter-spacing="1">TAIWAN HON CHUAN GROUP</text>
+  <text x="692" y="206" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#777" letter-spacing="0.5">BEVERAGE &amp; PACKAGING SOLUTION PROVIDER</text>
+
+  <!-- Sub label -->
+  <text x="720" y="258" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" fill="#888" text-anchor="middle">飲料代工智慧配對</text>
+
+  <!-- Hero headline -->
+  <text x="720" y="330" font-family="-apple-system, BlinkMacSystemFont, 'PingFang TC', sans-serif" font-size="58" font-weight="800" fill="#1a2744" text-anchor="middle">你的下一瓶飲料，</text>
+  <text x="720" y="400" font-family="-apple-system, BlinkMacSystemFont, 'PingFang TC', sans-serif" font-size="58" font-weight="800" fill="#1a2744" text-anchor="middle">從這裡開始。</text>
+
+  <!-- Subtext -->
+  <text x="720" y="450" font-family="-apple-system, BlinkMacSystemFont, 'PingFang TC', sans-serif" font-size="15" fill="#555" text-anchor="middle">只需幾個選擇，告訴我們你想做什麼飲料、需要什麼設備，我</text>
+  <text x="720" y="472" font-family="-apple-system, BlinkMacSystemFont, 'PingFang TC', sans-serif" font-size="15" fill="#555" text-anchor="middle">們幫你找出最適合的代工產線。</text>
+
+  <!-- CTA Button -->
+  <rect x="596" y="502" width="248" height="54" rx="10" fill="#1a2744"/>
+  <text x="720" y="536" font-family="-apple-system, BlinkMacSystemFont, 'PingFang TC', sans-serif" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">開始配對 →</text>
+
+  <!-- Category chips row 1 -->
+  <rect x="474" y="590" width="68" height="28" rx="14" fill="#ffffff" stroke="#ddd" stroke-width="1"/>
+  <text x="508" y="609" font-family="-apple-system, sans-serif" font-size="12" fill="#333" text-anchor="middle">🍵 茶飲</text>
+  <rect x="554" y="590" width="68" height="28" rx="14" fill="#ffffff" stroke="#ddd" stroke-width="1"/>
+  <text x="588" y="609" font-family="-apple-system, sans-serif" font-size="12" fill="#333" text-anchor="middle">🧋 奶茶</text>
+  <rect x="634" y="590" width="68" height="28" rx="14" fill="#ffffff" stroke="#ddd" stroke-width="1"/>
+  <text x="668" y="609" font-family="-apple-system, sans-serif" font-size="12" fill="#333" text-anchor="middle">☕ 咖啡</text>
+  <rect x="714" y="590" width="86" height="28" rx="14" fill="#ffffff" stroke="#ddd" stroke-width="1"/>
+  <text x="757" y="609" font-family="-apple-system, sans-serif" font-size="12" fill="#333" text-anchor="middle">⚡ 運動飲料</text>
+  <rect x="812" y="590" width="68" height="28" rx="14" fill="#ffffff" stroke="#ddd" stroke-width="1"/>
+  <text x="846" y="609" font-family="-apple-system, sans-serif" font-size="12" fill="#333" text-anchor="middle">🌿 植物奶</text>
+  <rect x="892" y="590" width="68" height="28" rx="14" fill="#ffffff" stroke="#ddd" stroke-width="1"/>
+  <text x="926" y="609" font-family="-apple-system, sans-serif" font-size="12" fill="#333" text-anchor="middle">🍊 果汁</text>
+
+  <!-- Category chips row 2 -->
+  <rect x="636" y="628" width="76" height="28" rx="14" fill="#ffffff" stroke="#ddd" stroke-width="1"/>
+  <text x="674" y="647" font-family="-apple-system, sans-serif" font-size="12" fill="#333" text-anchor="middle">💪 蛋白飲</text>
+  <rect x="724" y="628" width="76" height="28" rx="14" fill="#ffffff" stroke="#ddd" stroke-width="1"/>
+  <text x="762" y="647" font-family="-apple-system, sans-serif" font-size="12" fill="#333" text-anchor="middle">🥥 椰子汁</text>
+</svg>

@@ -37,50 +37,88 @@
       backdrop-filter: saturate(180%) blur(20px);
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      height: 56px;
+      padding: 0 1.5rem;
+      min-height: 56px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
     header .brand {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 600;
       color: var(--text-primary);
       text-decoration: none;
+      white-space: nowrap;
     }
     .header-right {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
     .lang-switcher {
       display: flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.25rem;
     }
     .lang-btn {
       background: none;
       border: none;
       cursor: pointer;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 600;
       color: var(--text-secondary);
-      padding: 0.2rem 0.4rem;
+      padding: 0.2rem 0.35rem;
       border-radius: 4px;
       transition: color 0.2s;
       font-family: inherit;
+      white-space: nowrap;
     }
     .lang-btn.active { color: var(--accent); }
     .lang-btn:hover { color: var(--accent); }
-    .lang-sep { color: var(--border); font-size: 0.85rem; }
+    .lang-sep { color: var(--border); font-size: 0.8rem; }
+    header nav {
+      display: flex;
+      gap: 1rem;
+    }
     header nav a {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--text-secondary);
       text-decoration: none;
       transition: color 0.2s;
+      white-space: nowrap;
     }
     header nav a:hover { color: var(--accent); }
+    @media (max-width: 600px) {
+      header {
+        padding: 0 1rem;
+        min-height: 48px;
+        flex-wrap: nowrap;
+        gap: 0.5rem;
+      }
+      header .brand {
+        font-size: 0.88rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 160px;
+      }
+      .header-right {
+        gap: 0.5rem;
+        flex-wrap: nowrap;
+        flex-shrink: 0;
+      }
+      header nav {
+        display: none;
+      }
+      /* prevent service card screenshots from overflowing on mobile */
+      .service-card { overflow: hidden; }
+      .screenshot-wrapper { overflow: hidden; max-width: 100%; }
+      .screenshot-wrapper img { max-width: 100%; }
+      .web-services-grid { overflow: hidden; }
+    }
 
     /* ── Hero ── */
     .hero {
@@ -100,6 +138,12 @@
       max-width: 480px;
       margin: 0 auto;
       line-height: 1.7;
+    }
+    @media (max-width: 600px) {
+      .hero p {
+        font-size: 0.95rem;
+        padding: 0 0.5rem;
+      }
     }
 
     /* ── App Grid ── */
@@ -432,17 +476,13 @@
 
 <header>
   <div style="display:flex;align-items:baseline;gap:0.4rem;">
-    <a class="brand" href="#" data-i18n="brand">Mark Hsu Vibe Code</a><span class="brand-version">V1.0.2</span>
+    <a class="brand" href="#" data-i18n="brand">Mark Hsu Vibe Code</a><span class="brand-version">V1.0.3</span>
   </div>
   <div class="header-right">
     <div class="lang-switcher">
       <button id="btn-en" class="lang-btn active" onclick="setLang('en')">EN</button>
       <span class="lang-sep">|</span>
       <button id="btn-zh" class="lang-btn" onclick="setLang('zh')">中文</button>
-      <span class="lang-sep">|</span>
-      <button id="btn-ja" class="lang-btn" onclick="setLang('ja')">日本語</button>
-      <span class="lang-sep">|</span>
-      <button id="btn-es" class="lang-btn" onclick="setLang('es')">Español</button>
     </div>
     <nav style="display:flex;gap:1.5rem;">
       <a href="#apps" data-i18n="nav_apps">Apps</a>
@@ -723,6 +763,34 @@
           <span data-i18n="web3_feat3">☁️ Google DB</span>
         </div>
         <a class="btn-visit" href="https://beverage-intelligence-717999637092.us-west1.run.app" target="_blank" rel="noopener" data-i18n="btn_visit">Visit Website →</a>
+      </div>
+    </div>
+
+    <!-- Beverage ODM Line Finder -->
+    <div class="service-card">
+      <div class="service-screenshot">
+        <div class="browser-chrome">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-url">markcqhsu.github.io/beverage-odm</span>
+        </div>
+        <div class="screenshot-wrapper">
+          <img src="screenshots/web4_beverage_odm.svg" alt="Beverage ODM Line Finder Screenshot" loading="lazy" />
+        </div>
+      </div>
+      <div class="service-body">
+        <div class="service-meta">
+          <h2 data-i18n="web4_name">找到你的產線</h2>
+          <span class="tag">Web</span>
+        </div>
+        <p class="service-desc" data-i18n="web4_desc">An interactive matching tool that helps colleagues and clients find the right THC contract manufacturing production line. Answer a short questionnaire about drink type, equipment, and certifications to get matched.</p>
+        <div class="service-features">
+          <span data-i18n="web4_feat1">🏭 Line Matching</span>
+          <span data-i18n="web4_feat2">✅ Certification Filter</span>
+          <span data-i18n="web4_feat3">📋 Contact Form</span>
+        </div>
+        <a class="btn-visit" href="https://markcqhsu.github.io/beverage-odm/" target="_blank" rel="noopener" data-i18n="btn_visit">Visit Website →</a>
       </div>
     </div>
 
@@ -1620,6 +1688,11 @@
       app6_feat1:  '🗓️ Multi-Expo Management',
       app6_feat2:  '📝 Custom Questionnaires',
       app6_feat3:  '📤 Data Export',
+      web4_name:   '找到你的產線',
+      web4_desc:   'An interactive matching tool that helps colleagues and clients find the right THC contract manufacturing production line. Answer a short questionnaire about drink type, equipment, and certifications to get matched.',
+      web4_feat1:  '🏭 Line Matching',
+      web4_feat2:  '✅ Certification Filter',
+      web4_feat3:  '📋 Contact Form',
       footer:      '© 2026 Mark Hsu Vibe Code',
     },
     zh: {
@@ -1679,6 +1752,11 @@
       app6_feat1:  '🗓️ 多展會管理',
       app6_feat2:  '📝 自訂問卷表單',
       app6_feat3:  '📤 資料匯出',
+      web4_name:   '找到你的產線',
+      web4_desc:   '協助同仁與客戶尋找合適的宏全代工產線。透過六步驟問卷填寫飲料類型、設備需求、瓶型規格與認證需求，快速配對最適合的產線。',
+      web4_feat1:  '🏭 產線智慧配對',
+      web4_feat2:  '✅ 認證條件篩選',
+      web4_feat3:  '📋 詢問表單',
       footer:      '© 2026 徐馬克Vibe Code',
     },
     ja: {
@@ -1738,6 +1816,11 @@
       app6_feat1:  '🗓️ 複数展示会管理',
       app6_feat2:  '📝 カスタムアンケート',
       app6_feat3:  '📤 データエクスポート',
+      web4_name:   '生産ラインを探す',
+      web4_desc:   '同僚やお客様が最適な宏全OEM生産ラインを見つけるためのインタラクティブなマッチングツール。飲料タイプ・設備・認証に関するアンケートに答えると最適な生産ラインが見つかります。',
+      web4_feat1:  '🏭 ライン マッチング',
+      web4_feat2:  '✅ 認証フィルター',
+      web4_feat3:  '📋 お問い合わせフォーム',
       footer:      '© 2026 マーク・ホウ Vibe Code',
     },
     es: {
@@ -1797,23 +1880,27 @@
       app6_feat1:  '🗓️ Gestión Multi-Expo',
       app6_feat2:  '📝 Cuestionarios Personalizados',
       app6_feat3:  '📤 Exportación de Datos',
+      web4_name:   'Encuentra Tu Línea de Producción',
+      web4_desc:   'Herramienta interactiva de emparejamiento que ayuda a colegas y clientes a encontrar la línea de fabricación por contrato THC adecuada. Responde un breve cuestionario sobre tipo de bebida, equipamiento y certificaciones.',
+      web4_feat1:  '🏭 Matching de Líneas',
+      web4_feat2:  '✅ Filtro Certificaciones',
+      web4_feat3:  '📋 Formulario Contacto',
       footer:      '© 2026 Mark Hsu Vibe Code',
     }
   };
 
   function setLang(lang) {
-    document.documentElement.lang = lang === 'zh' ? 'zh-TW' : lang === 'ja' ? 'ja' : lang === 'es' ? 'es' : 'en';
+    if (!['en', 'zh'].includes(lang)) lang = 'en';
+    document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
-      if (i18n[lang][key] !== undefined) el.textContent = i18n[lang][key];
+      if (i18n[lang] && i18n[lang][key] !== undefined) el.textContent = i18n[lang][key];
     });
     document.querySelectorAll('[data-lang]').forEach(el => {
       el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
     });
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
     document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
-    document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
-    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
     localStorage.setItem('lang', lang);
   }
 
